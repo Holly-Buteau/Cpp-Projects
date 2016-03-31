@@ -1,0 +1,47 @@
+CXX = game.cpp
+CXX += Die.cpp
+CXX += LoadedDie.cpp
+CXX += dieMain.cpp
+CXX += game.hpp
+CXX = Die.hpp
+CXX += LoadedDie.hpp
+
+dieMain: Die.o game.o LoadedDie.o dieMain.o
+	g++ game.o Die.o LoadedDie.o dieMain.o -o dieMain
+
+game.o: game.cpp game.hpp
+	g++ -c game.cpp
+
+Die.o: Die.cpp Die.hpp
+	g++ -c Die.cpp
+
+LoadedDie.o: LoadedDie.cpp LoadedDie.hpp
+	g++ -c LoadedDie.cpp
+
+dieMain.o: dieMain.cpp
+	g++ -c dieeMain.cpp
+
+default:
+	g++ -std=c++0x ${CXX} -o prog
+
+clean:
+	rm *.o dieMain 
+
+
+game.o: game.cpp game.hpp
+        g++ -c game.cpp
+
+Die.o: Die.cpp Die.hpp
+        g++ -c Die.cpp
+
+LoadedDie.o: LoadedDie.cpp LoadedDie.hpp
+        g++ -c LoadedDie.cpp
+
+dieMain.o: dieMain.cpp
+        g++ -c dieeMain.cpp
+
+default:
+        g++ -std=c++0x ${CXX} -o prog
+
+clean:
+ 	rm *.o dieMain
